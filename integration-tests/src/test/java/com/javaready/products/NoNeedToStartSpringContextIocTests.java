@@ -13,22 +13,22 @@ class NoNeedToStartSpringContextIocTests {
 
     @Test
     void without_context_testing_example() {
-        ProductVerifier ProductVerifier = new TestConfig().testProductVerifier();
+        ProductVerifier productVerifier = new TestConfig().testProductVerifier();
 
-        ProductVerificationResult result = ProductVerifier.verify(tooOldMeat());
+        ProductVerificationResult result = productVerifier.verify(tooOldMeat());
 
         BDDAssertions.then(result.getStatus()).isEqualTo(VERIFICATION_FAILED);
     }
 
     Product tooOldMeat() {
-        return new Product(UUID.randomUUID(), "", "", LocalDate.now(), "128312319018");
+        return new Product(UUID.randomUUID(), "", "Krakus", LocalDate.now(), "128312319018");
     }
 }
 
 class TestConfig extends Config {
 
     Verification testIdVerification() {
-        return idVerification(new InMemoryDatabaseAccessor());
+        return barcodeVerification(new InMemoryDatabaseAccessor());
     }
 
     ProductVerifier testProductVerifier() {
