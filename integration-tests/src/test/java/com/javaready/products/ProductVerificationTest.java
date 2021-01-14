@@ -14,7 +14,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 class ProductVerificationTest {
 
     @Test
-    void should_pass_verification_when_non_fraud_gets_verified(@Autowired ProductVerifier productVerifier) {
+    void should_not_pass_verification_when_all_atleast_one_verification_not_passed(@Autowired ProductVerifier productVerifier) {
         ProductVerificationResult result = productVerifier.verify(tooOldMeat());
 
         then(result.getStatus()).isEqualTo(VERIFICATION_FAILED);
