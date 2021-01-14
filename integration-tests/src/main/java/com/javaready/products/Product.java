@@ -36,6 +36,10 @@ public class Product {
         return barCode;
     }
 
+    public String getProducerName() {
+        return producerName;
+    }
+
     int getDaysFromProduction() {
         LocalDate currentDate = LocalDate.now();
         if (dateOfProduction != null) {
