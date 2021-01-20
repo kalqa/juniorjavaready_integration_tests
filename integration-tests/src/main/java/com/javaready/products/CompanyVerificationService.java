@@ -33,7 +33,7 @@ public class CompanyVerificationService {
     public ProductVerificationResult verify(CompanyDto companyDto) {
         try {
             HttpResponse response = client
-                    .execute(new HttpGet(URI.create(companyServiceUri + companyDto.getProduct().getProducerName())));
+                    .execute(new HttpGet(URI.create(companyServiceUri + companyDto.getCompanyName())));
             String externalStatus = EntityUtils.toString(response.getEntity());
             if (ProductVerificationResult.Status.VERIFICATION_PASSED.name()
                     .equals(externalStatus)) {
