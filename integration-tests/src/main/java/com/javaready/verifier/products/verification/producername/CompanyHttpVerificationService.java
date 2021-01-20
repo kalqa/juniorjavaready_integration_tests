@@ -22,11 +22,6 @@ public class CompanyHttpVerificationService {
 
     private final HttpClient client;
 
-    public CompanyHttpVerificationService(String companyServiceUri, HttpClient client) {
-        this.companyServiceUri = companyServiceUri;
-        this.client = client;
-    }
-
     public CompanyHttpVerificationService(String companyServiceUri) {
         this.companyServiceUri = companyServiceUri;
         this.client = HttpClientBuilder.create().build();
