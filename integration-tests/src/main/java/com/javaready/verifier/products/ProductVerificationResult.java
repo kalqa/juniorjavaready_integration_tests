@@ -38,7 +38,6 @@ public class ProductVerificationResult {
     public enum Status {
         VERIFICATION_PASSED,
         VERIFICATION_FAILED
-
     }
 
 }

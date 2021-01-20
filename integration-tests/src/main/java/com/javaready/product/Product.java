@@ -15,7 +15,7 @@ public class Product {
     private final LocalDate dateOfProduction;
     private final String barCode;
 
-    Product(UUID uuid, String name, String producerName, LocalDate dateOfProduction, String barCode) {
+    public Product(UUID uuid, String name, String producerName, LocalDate dateOfProduction, String barCode) {
         this.uuid = uuid;
         this.name = name;
         this.producerName = producerName;

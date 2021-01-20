@@ -4,18 +4,15 @@ import java.util.Set;
 
 import com.javaready.product.Product;
 import com.javaready.verifier.Verification;
-import com.javaready.verifier.products.verification.producername.CompanyHttpVerificationService;
 
 public class ProductVerifier {
 
     private final Set<Verification> verifications;
     private final VerificationRepository repository;
-    private final CompanyHttpVerificationService companyHttpVerificationService;
 
-    public ProductVerifier(Set<Verification> verifications, VerificationRepository repository, CompanyHttpVerificationService companyHttpVerificationService) {
+    public ProductVerifier(Set<Verification> verifications, VerificationRepository repository) {
         this.verifications = verifications;
         this.repository = repository;
-        this.companyHttpVerificationService = companyHttpVerificationService;
     }
 
     ProductVerificationResult verify(Product product) {
