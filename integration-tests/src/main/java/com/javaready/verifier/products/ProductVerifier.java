@@ -27,9 +27,15 @@ public class ProductVerifier {
 
     private ProductVerificationResult verifyProduct(Product product) {
         if (doesAllVerificationPassed(product)) {
-            return ProductVerificationResult.passed(product.getUuid());
+            final ProductVerificationResult result = ProductVerificationResult.passed(product.getUuid());
+            repository.save(verifiedProduct(product, result));
+            return result;
         }
         return ProductVerificationResult.failed(product.getUuid());
+    }
+
+    private VerifiedProduct verifiedProduct(Product product, ProductVerificationResult result) {
+        return new VerifiedProduct(product.getUuid(), result.getStatus());
     }
 
     private boolean doesAllVerificationPassed(Product product) {
