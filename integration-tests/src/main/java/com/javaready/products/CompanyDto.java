@@ -20,7 +20,7 @@ class CompanyDto {
         return product;
     }
 
-    public String companyName() {
+    public String getCompanyName() {
         return product.getProducerName();
     }
 }

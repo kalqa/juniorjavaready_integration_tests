@@ -23,7 +23,7 @@ class CompanyVerificationServiceTests {
 
     WireMockServer wireMockServer;
 
-    CompanyVerificationService service = new CompanyVerificationService("http://localhost:" + port + "/", httpClient());
+    CompanyVerificationService service = new CompanyVerificationService("http://localhost:" + port + "/");
 
     @BeforeEach
     void setup() {
@@ -56,7 +56,6 @@ class CompanyVerificationServiceTests {
 
     @Test
     void should_return_negative_verification() {
-        // Zaślepiamy wywołanie GET, zwracając odpowiednią wartość tekstową
         WireMock.stubFor(WireMock.get("/Krakus")
                 .willReturn(WireMock.aResponse().withBody("VERIFICATION_FAILED")));
 
