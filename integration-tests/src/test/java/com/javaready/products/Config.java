@@ -29,7 +29,7 @@ class Config {
     }
 
     @Bean
-    Verification idVerification(DatabaseAccessor accessor) {
+    Verification barCodeVerification(DatabaseAccessor accessor) {
         return new BarCodeVerification(accessor);
     }
 
