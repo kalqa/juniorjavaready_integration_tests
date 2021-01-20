@@ -31,7 +31,9 @@ public class ProductVerifier {
             repository.save(verifiedProduct(product, result));
             return result;
         }
-        return ProductVerificationResult.failed(product.getUuid());
+        final ProductVerificationResult result = ProductVerificationResult.failed(product.getUuid());
+        repository.save(verifiedProduct(product, result));
+        return result;
     }
 
     private VerifiedProduct verifiedProduct(Product product, ProductVerificationResult result) {

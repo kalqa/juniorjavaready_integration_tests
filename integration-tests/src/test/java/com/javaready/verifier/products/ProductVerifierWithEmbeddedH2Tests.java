@@ -19,12 +19,15 @@ import static org.assertj.core.api.BDDAssertions.then;
 class ProductVerifierWithEmbeddedH2Tests {
 
     @Test
-    void should_successfully_verify_a_product_when_previously_verified(@Autowired VerificationRepository repository, @Autowired ProductVerifier verifier) {
+    void should_unsuccessfully_verify_a_product_when_previously_verified(@Autowired VerificationRepository repository, @Autowired ProductVerifier verifier) {
+        // given
         Product tooOldMeet = tooOldMeet();
         then(repository.findByProductId(tooOldMeet.getUuid())).isPresent();
 
+        // when
         ProductVerificationResult result = verifier.verify(tooOldMeet);
 
+        // then
         then(result.getProductId()).isEqualTo(tooOldMeet().getUuid());
         then(result.getStatus()).isEqualTo(VERIFICATION_FAILED);
     }

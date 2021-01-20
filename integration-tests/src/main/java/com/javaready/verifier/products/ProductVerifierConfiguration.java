@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 class ProductVerifierConfiguration {
 
     @Bean
-    ProductVerifier customerVerifier(@Autowired(required = false) Set<Verification> verifications, VerificationRepository verificationRepository) {
+    ProductVerifier productVerifier(@Autowired(required = false) Set<Verification> verifications, VerificationRepository verificationRepository) {
         return new ProductVerifier(verifications != null ? verifications : Collections.emptySet(), verificationRepository);
     }
 }
