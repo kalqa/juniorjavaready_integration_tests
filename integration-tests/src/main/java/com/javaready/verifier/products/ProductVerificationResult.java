@@ -1,4 +1,4 @@
-package com.javaready.products;
+package com.javaready.verifier.products;
 
 import java.util.UUID;
 
@@ -7,7 +7,7 @@ public class ProductVerificationResult {
     private UUID productId;
     private Status status;
 
-    private ProductVerificationResult(UUID productId, Status status) {
+    public ProductVerificationResult(UUID productId, Status status) {
         this.productId = productId;
         this.status = status;
     }
@@ -27,12 +27,18 @@ public class ProductVerificationResult {
         return productId;
     }
 
+    public boolean passed() {
+        return Status.VERIFICATION_PASSED.equals(status);
+    }
+
     public Status getStatus() {
         return status;
     }
 
-    enum Status {
+    public enum Status {
         VERIFICATION_PASSED,
         VERIFICATION_FAILED
+
     }
+
 }

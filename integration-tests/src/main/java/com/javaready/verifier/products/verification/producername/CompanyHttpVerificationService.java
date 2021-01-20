@@ -1,8 +1,10 @@
-package com.javaready.products;
+package com.javaready.verifier.products.verification.producername;
 
 import java.io.IOException;
 import java.net.URI;
 
+import com.javaready.product.CompanyDto;
+import com.javaready.verifier.products.ProductVerificationResult;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -11,21 +13,21 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CompanyVerificationService {
+public class CompanyHttpVerificationService {
 
     private static final Logger LOG = LoggerFactory
-            .getLogger(CompanyVerificationService.class);
+            .getLogger(CompanyHttpVerificationService.class);
 
     private final String companyServiceUri;
 
     private final HttpClient client;
 
-    public CompanyVerificationService(String companyServiceUri, HttpClient client) {
+    public CompanyHttpVerificationService(String companyServiceUri, HttpClient client) {
         this.companyServiceUri = companyServiceUri;
         this.client = client;
     }
 
-    CompanyVerificationService(String companyServiceUri) {
+    public CompanyHttpVerificationService(String companyServiceUri) {
         this.companyServiceUri = companyServiceUri;
         this.client = HttpClientBuilder.create().build();
     }

@@ -1,9 +1,12 @@
-package com.javaready.products;
+package com.javaready.product;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.UUID;
 
+import lombok.Getter;
+
+@Getter
 public class Product {
 
     private final UUID uuid;
@@ -18,26 +21,6 @@ public class Product {
         this.producerName = producerName;
         this.dateOfProduction = dateOfProduction;
         this.barCode = barCode;
-    }
-
-    UUID getUuid() {
-        return uuid;
-    }
-
-    String getName() {
-        return name;
-    }
-
-    LocalDate getDateOfProduction() {
-        return dateOfProduction;
-    }
-
-    String getBarCode() {
-        return barCode;
-    }
-
-    public String getProducerName() {
-        return producerName;
     }
 
     int getDaysFromProduction() {

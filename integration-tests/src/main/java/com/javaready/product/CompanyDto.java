@@ -1,8 +1,8 @@
-package com.javaready.products;
+package com.javaready.product;
 
 import java.util.UUID;
 
-class CompanyDto {
+public class CompanyDto {
 
     private final UUID uuid;
     private final Product product;
