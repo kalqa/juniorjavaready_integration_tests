@@ -31,6 +31,10 @@ public class ProductVerificationResult {
         return Status.VERIFICATION_PASSED.equals(status);
     }
 
+    public boolean notPassed() {
+        return Status.VERIFICATION_FAILED.equals(status);
+    }
+
     public Status getStatus() {
         return status;
     }
